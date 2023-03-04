@@ -458,7 +458,7 @@ let animate = function () {
                             if(score > 5000) {
                                 lvl = 2;
                                 numberLevel.innerHTML = lvl;
-                                // for(let i = 0; i < grids.length; i++) 
+                                for(let i = 0; i < grids.length; i++) 
                                 grids[i].velocity.x = 5;
                             }else if(score > 10000) {   
                                 lvl = 3;
