@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study - Game Space Invaders</title>
+    <link rel="stylesheet" href="index.css">
+</head> 
+
+<body>
+    <div style="position: relative;">
+        <p><span id="nameEl">Score: </span> <span id="scoreEl">0</span></p>
+        <p><span id="level">Level: </span><span id="numberLevel">1</span></p>
+        <canvas></canvas> <br>
+        <p><span id="text">WELCOME TO GAME SPACE INVADERS!</span></p>
+        <p><span id="ruler">Ruler Game:</span><br><span id="rulerMove">&larr; : Move Left <br> &uarr; : Move Up <br>&rarr; : Move Right <br>&darr; : Move Down <br> Space : Shoot</span></p>
+        <div id="classButton1"><input type="button" id="start" onclick="startGame()" value="Start"></div>
+        <div id="classButton2"><input type="button" id="restart" onclick="restartGame()" value="Restart"></div>
+        <p><span id="textScore"></span></p>
+    </div>  
+    <script src="index.js"></script>
+</body>
+
+</html> 
