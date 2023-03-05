@@ -228,6 +228,7 @@ function init() {
     //  statusGame = false;
     score = 0;
     lvl = 1;
+    velocity_x = 3;
     sound = true;
     soundBackgroud = new Audio('./assets/audio/backgroundMusic.wav');
     soundShoot = new Audio('./assets/audio/shoot.wav');
@@ -450,17 +451,21 @@ let animate = function () {
                             } else {
                                 grids.splice(gridIndex, 1);
                             }
+
                             if (score > 5000) {
-                                lvl = 2;
+                                numberLevel.innerHTML = "";
+                                lvl  = 2;
                                 numberLevel.innerHTML = lvl;
                                 for (let i = 0; i < grids.length; i++)
                                     grids[i].velocity.x = 5;
                             } else if (score > 10000) {
+                                numberLevel.innerHTML = "";
                                 lvl = 3;
                                 numberLevel.innerHTML = lvl;
                                 for (let i = 0; i < grids.length; i++)
                                     grids[i].velocity.x = 10;
                             } else if (score > 20000) {
+                                numberLevel.innerHTML = "";
                                 lvl = 4;
                                 numberLevel.innerHTML = lvl;
                                 for (let i = 0; i < grids.length; i++)
