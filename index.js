@@ -451,23 +451,18 @@ let animate = function () {
                             } else {
                                 grids.splice(gridIndex, 1);
                             }
+                            if (score % 5000 == 0) {
+                                lvl  += 1;
+                                numberLevel.innerHTML = lvl;
+                            }
 
                             if (score > 5000) {
-                                numberLevel.innerHTML = "";
-                                lvl  = 2;
-                                numberLevel.innerHTML = lvl;
                                 for (let i = 0; i < grids.length; i++)
                                     grids[i].velocity.x = 5;
                             } else if (score > 10000) {
-                                numberLevel.innerHTML = "";
-                                lvl = 3;
-                                numberLevel.innerHTML = lvl;
                                 for (let i = 0; i < grids.length; i++)
                                     grids[i].velocity.x = 10;
                             } else if (score > 20000) {
-                                numberLevel.innerHTML = "";
-                                lvl = 4;
-                                numberLevel.innerHTML = lvl;
                                 for (let i = 0; i < grids.length; i++)
                                     grids[i].velocity.x = 15;
                             }
