@@ -302,7 +302,7 @@ init();
 // }
 // let frames = 0;
 let randomInterval = Math.floor(Math.random() * 500) + 500;
- 
+
 let createParticles = function ({ object, color, fades }) {
     for (let i = 0; i < 15; i++) {
         particles.push(
@@ -328,7 +328,7 @@ let animateStart = function () {
 
 let animate = function () {
     soundBackgroud.play();
-    if (!sound) {
+    if (sound == false) {
         soundBackgroud.pause();
         soundShoot.pause();
         soundEnemyShoot.pause();
@@ -353,10 +353,7 @@ let animate = function () {
     requestAnimationFrame(animate);
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    console.log(player);
     player.update();
-
     particles.forEach((particle, i) => {
 
         if (particle.position.y - particle.radius >= canvas.height) {
@@ -408,7 +405,7 @@ let animate = function () {
 
             createParticles({ object: player, color: 'white', fades: true });
         }
-        
+
         if (score % 5000 == 0) {
             setTimeout(() => {
                 invaderProjectile.velocity.y = 8;
@@ -436,7 +433,6 @@ let animate = function () {
                         let invaderFound = grid.invader.find((invader2) => invader2 === invader);
                         let projectileFound = projectiles.find((projectile2) => projectile2 === projectile);
 
-
                         if (invaderFound && projectileFound) {
                             score += 100;
                             scoreEl.innerHTML = score;
@@ -446,7 +442,6 @@ let animate = function () {
 
                             createParticles({ object: invader, fades: true });
 
-
                             if (grid.invader.length > 0) {
                                 let firstInvader = grid.invader[0];
                                 let lastInvader = grid.invader[grid.invader.length - 1];
@@ -455,21 +450,21 @@ let animate = function () {
                             } else {
                                 grids.splice(gridIndex, 1);
                             }
-                            if(score > 5000) {
+                            if (score > 5000) {
                                 lvl = 2;
                                 numberLevel.innerHTML = lvl;
-                                for(let i = 0; i < grids.length; i++) 
-                                grids[i].velocity.x = 5;
-                            }else if(score > 10000) {   
+                                for (let i = 0; i < grids.length; i++)
+                                    grids[i].velocity.x = 5;
+                            } else if (score > 10000) {
                                 lvl = 3;
                                 numberLevel.innerHTML = lvl;
-                                for(let i = 0; i < grids.length; i++) 
-                                grids[i].velocity.x = 10;
-                            }else if(score > 20000) {   
+                                for (let i = 0; i < grids.length; i++)
+                                    grids[i].velocity.x = 10;
+                            } else if (score > 20000) {
                                 lvl = 4;
                                 numberLevel.innerHTML = lvl;
-                                for(let i = 0; i < grids.length; i++) 
-                                grids[i].velocity.x = 15;
+                                for (let i = 0; i < grids.length; i++)
+                                    grids[i].velocity.x = 15;
                             }
                         }
                     }, 0)
@@ -566,12 +561,14 @@ if (game.active == true) {
     numberLevel.hidden = true;
     buttonStart.hidden = false;
     buttonRestart.hidden = true;
-    soundBackgroud.pause();
-    soundShoot.pause();
-    soundEnemyShoot.pause();
-    soundGameOver.pause()
-    soundScore.pause()
-    soundStart.pause()
+    if (sound == true) {
+        soundBackgroud.pause();
+        soundShoot.pause();
+        soundEnemyShoot.pause();
+        soundGameOver.pause()
+        soundScore.pause()
+        soundStart.pause()
+    }
     animateStart();
 }
 
