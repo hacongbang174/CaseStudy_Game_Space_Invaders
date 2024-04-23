@@ -536,16 +536,16 @@ addEventListener("keydown", (evt) => {
   }
 
   switch (evt.keyCode) {
-    case 37:
+    case 65:
       ButtonState.BUTTON_LEFT.pressed = true;
       break;
-    case 39:
+    case 68:
       ButtonState.BUTTON_RIGHT.pressed = true;
       break;
-    case 38:
+    case 87:
       ButtonState.BUTTON_DOWN.pressed = true;
       break;
-    case 40:
+    case 83:
       ButtonState.BUTTON_UP.pressed = true;
       break;
     case 32:
@@ -572,10 +572,10 @@ addEventListener("keyup", (evt) => {
     case 68:
       ButtonState.BUTTON_RIGHT.pressed = false;
       break;
-    case 83:
+    case 87:
       ButtonState.BUTTON_DOWN.pressed = false;
       break;
-    case 87:
+    case 83:
       ButtonState.BUTTON_UP.pressed = false;
       break;
     case 32:
